@@ -117,6 +117,7 @@ function AstroKeys.AssignRank(player, inputKey)
 end
 
 function AstroKeys.EnableChatCommands(player)
+    if AstroKeys.ValidateKey(player.UserId) ~= "Owner" then return end
     player.Chatted:Connect(function(msg)
         local prefix = AstroKeys.Config.CommandPrefix
         if msg:sub(1, #prefix) == prefix then
